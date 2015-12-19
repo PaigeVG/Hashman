@@ -1,0 +1,2 @@
+python hashman.py 2> 'error log.txt'
+cat 'error log.txt'
