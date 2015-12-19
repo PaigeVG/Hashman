@@ -3,10 +3,10 @@ def valid_move(window, dx, dy):
     pos = curses.getsyx()
     y, x = pos[0], pos[1]
 
-    if not (y + dy) in range(0, HEIGHT):
+    if not (y + dy) in range(0, window.getmaxyx()[0]):
         return False
 
-    elif not (x + dx) in range(0, WIDTH):
+    elif not (x + dx) in range(0, window.getmaxyx()[1]):
         return False
 
     else:

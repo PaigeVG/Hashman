@@ -13,31 +13,26 @@ START_Y = 0
 START_X = 0
 DEFAULT_FPS = 60
 
-
-#coords = [(y,x) for y in range(0,HEIGHT-1)for x in range(0,WIDTH-1)]
-
 def main():
-    setup()
+    window = setup()
     while True:
         if game_clock.tick():
-            game_loop()
+            game_loop(window)
 
 
 def game_loop(window):
-    input_handler.listen_for_key(window)
+    input_handler.listen_for_key()
     #run logic
     window.refresh()
 
 def setup():
     setup_curses()
-    setup_window()
-    input_init()
+    window = setup_window()
     global game_clock
     game_clock = Clock(DEFAULT_FPS)
-    
     global input_handler
-    input_handler = InputHandler()
-    
+    input_handler = InputHandler(window)
+    return(window)
 
 def setup_curses():
     curses.initscr()
@@ -69,6 +64,8 @@ class Clock:
             return True
         else:
             return False
+
+
 
 
 
