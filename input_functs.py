@@ -1,3 +1,4 @@
+import curses
 #----------------------------------------------------------------------------#
 def valid_move(window, dx, dy):
     pos = curses.getsyx()

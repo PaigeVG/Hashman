@@ -66,7 +66,4 @@ class Clock:
             return False
 
 
-
-
-
 main()
